@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharlyn S. Fabian | Data Analyst & Strategy Lead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: #faf9f6; font-family: 'Montserrat', sans-serif; color: #1a1a1a; margin: 0; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+        
+        .full-width-container { width: 100%; max-width: 100%; padding-left: 6%; padding-right: 6%; }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #8e6d45 0%, #d4af37 50%, #8e6d45 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-mask {
+            width: 450px;
+            height: 450px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+        }
+
+        .glass-card {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        /* --- ZOOM MODAL STYLES --- */
+        #zoom-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: opacity 0.3s ease;
+        }
+
+        #zoom-modal.active { display: flex; opacity: 1; }
+
+        #zoom-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        #zoom-modal.active img { transform: scale(1); }
+
+        .close-zoom {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 24px;
+            color: #888;
+            cursor: pointer;
+        }
+        /* ------------------------- */
+
+        .skill-item {
+            padding: 10px;
+            text-align: left;
+            border-left: 2px solid #f3f3f3;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #888;
+            transition: 0.3s;
+            padding-left: 15px;
+        }
+        .skill-item:hover { border-color: #d4af37; color: #1a1a1a; }
+
+        .exp-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .role-node {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 30px;
+            border-left: 1px solid #d4af37;
+        }
+        .role-node::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 9px;
+            height: 9px;
+            background: #d4af37;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="zoom-modal" onclick="closeZoom()">
+        <span class="close-zoom"><i class="fas fa-times"></i></span>
+        <img id="zoomed-image" src="" alt="Zoomed View">
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100 py-5">
+        <div class="full-width-container flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter uppercase">Sharlyn<span class="gold-gradient"> Fabian</span></h1>
+            <div class="hidden lg:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400">
+                <a href="#about" class="hover:text-black">Vision</a>
+                <a href="#portfolio" class="hover:text-black">Portfolio</a>
+                <a href="#education" class="hover:text-black">Education</a>
+                <a href="#experience" class="hover:text-black">Work Experience</a>
+                
+            </div>
+            <a href="mailto:sharlynfabian@gmail.com" class="text-[10px] font-bold tracking-[0.3em] border-b-2 border-black pb-1 hover:border-yellow-600 transition-all">GET IN TOUCH</a>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-48 pb-24 bg-white">
+        <div class="full-width-container">
+            <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+                <div class="flex-shrink-0">
+                    <div class="hero-mask">
+                        <img src="SSF Image.jpg" alt="Sharlyn Fabian" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="max-w-5xl">
+                    <h2 class="text-6xl lg:text-[8vw] font-semibold text-neutral-800 leading-[0.85] mb-8 tracking-tight whitespace-nowrap">
+                        Data <span class="serif italic gold-gradient pr-4">Analyst</span>
+                    </h2>
+                    
+                    <p class="text-neutral-500 text-xl lg:text-3xl font-light serif italic leading-relaxed mb-12 border-l-4 border-yellow-500/20 pl-8">
+                        "22 years of operational depth refined into <br class="hidden lg:block"> 
+                        high-impact business intelligence. Turning Raw Data into Strategic Value."
+                    </p>
+                    
+                    <div class="flex flex-wrap lg:flex-nowrap gap-10 lg:gap-20 pt-4">
+                        <div>
+                            <span class="text-4xl lg:text-5xl font-light text-neutral-800">22</span>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-2 font-bold">Years of Experience</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl lg:text-5xl font-light text-neutral-800">LSSBB</span>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-2 font-bold">Black Belt In-Training</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl lg:text-5xl font-light text-neutral-800">50+</span>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-2 font-bold">Solutions Built</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 bg-neutral-50">
+        <div class="full-width-container">
+            <h4 class="text-[10px] font-bold tracking-[0.5em] text-neutral-300 uppercase mb-10">Technical Ecosystem</h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+                <div class="skill-item">ADVANCED EXCEL</div>
+                <div class="skill-item">POWER BI</div>
+                <div class="skill-item">TABLEAU</div>
+                <div class="skill-item">POWER QUERY</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">R</div>
+                <div class="skill-item">PYTHON</div>
+                <div class="skill-item">WEB DEVELOPMENT</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24">
+        <div class="full-width-container">
+            <div class="mb-20">
+                <h3 class="text-5xl serif italic">Portfolio</h3>
+                <div class="h-1 w-20 bg-yellow-500 mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="ServiceDesk SLA.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Service Reliability & Operational Compliance</p>
+                </div>
+                
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="NAP Locator.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Geospatial NAP Locator</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="WFM Executive.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Churn Correlation & Operational Headcount Stability</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="Sales Performance.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Sales Conversion & Accounts Receivable Velocity</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="Sales Metrics and Performance.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Conversion Dynamics & Predictive Growth Modeling</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="SEAT MAP.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">"Spatial Utilization & Dynamic Workspace Inventory</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="L&D Calendar and Performance.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Learning & Development Productivity</p>
+                </div>
+                
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="Training.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Analytics Adoption & Strategic Enablement</p>
+                </div>
+
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="Sokution Design Tracker.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Presales Engineering Impact & Blueprint Monetization</p>
+                </div>
+                <div class="glass-card p-4 group" onclick="openZoom(this)">
+                    <div class="aspect-video overflow-hidden rounded-lg mb-4 bg-neutral-100 flex items-center justify-center">
+                        <img src="HR Headcount.png" class="w-full h-full object-contain group-hover:scale-105 transition">
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-neutral-400">Presales Engineering Impact & Blueprint Monetization</p>
+                </div>
+            </div>
+        </div>
+    </section><section id="education" class="py-24 bg-neutral-50 border-t border-neutral-100">
+        <div class="full-width-container">
+            <div class="mb-16">
+                <h3 class="text-4xl lg:text-5xl serif italic tracking-tight">Academic & Professional Development</h3>
+                <p class="text-[10px] font-bold tracking-[0.4em] text-neutral-400 uppercase mt-2">Foundations in Mathematics, Computer Science & Advanced Analytics</p>
+                <div class="h-1 w-20 bg-yellow-500 mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-widest text-yellow-600 mb-8">Formal Education</h5>
+                    <div class="glass-card p-8 border-l-4 border-yellow-500">
+                        <span class="text-[11px] font-bold text-neutral-400 tracking-widest">1999 — 2003</span>
+                        <h4 class="text-xl font-bold mt-2 uppercase">Far Eastern University</h4>
+                        <p class="text-sm font-medium text-neutral-600">Manila, Philippines</p>
+                        <p class="text-sm mt-4 text-neutral-500 leading-relaxed">
+                            <span class="text-black font-bold">BS in Mathematics Major in Computer Science</span><br>
+                            Strong foundation in both mathematical principles and computer science fundamentals.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-widest text-yellow-600 mb-8">Specialized Certifications</h5>
+                    <div class="space-y-6">
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2025</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Lean Six Sigma Black Belt</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">Process Doctor Academy</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2025</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Lean Six Sigma Yellow Belt</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">Mf Treinamentos</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2025</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Lean Six Sigma White Belt</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">RK Organizational Excellence Institute (ROI)</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2023</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Google Advanced Data Analytics</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">Coursera Professional Specialization</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2023</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Google Data Analytics</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">Coursera Professional Specialization</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2022</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Full-Stack Development with React</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">HKUST (Hong Kong University of Science and Technology), Coursera</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start border-b border-neutral-200 pb-6">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2022</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Web Applications & Design for Everybody</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">University of Michigan, Coursera</p>
+                            </div>
+                        </div>
+                         <div class="flex gap-6 items-start">
+                            <div class="text-[10px] font-bold text-neutral-400 pt-1">2022</div>
+                            <div>
+                                <h6 class="text-xs font-bold uppercase tracking-tight">Building a Full Website using WordPress</h6>
+                                <p class="text-[10px] text-neutral-500 mt-1">Coursera</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-white">
+        <div class="full-width-container">
+            <h3 class="text-4xl serif italic mb-16">Work Experience</h3>
+            
+            <div class="exp-row">
+                <div class="pr-8">
+                    <span class="text-[11px] font-bold text-yellow-600 tracking-[0.2em] block">JUNE 2024 — PRESENT</span>
+                    <p class="text-[10px] font-bold text-neutral-400 uppercase mt-2">Universal Access & Systems Solutions Inc. </p>
+                    <p class="text-[9px] text-neutral-400 italic">Pasig, Philippines</p>
+                </div>
+                <div>
+                    <div class="role-node">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Analytics and Strategy Lead</h4>
+                        <p class="text-[10px] font-bold text-yellow-600 mb-2">Nexbit Tech PH (Oct 2025 – Present)</p>
+                        <p class="text-neutral-500 text-sm font-light leading-relaxed">
+                            Driving the vision for data strategy and BI architecture through the development of core business KPIs and the NextGen DataSphere. Transforming platform data into actionable insights that drive growth for MSME clients. Mentoring data professionals and enforcing strong data governance.
+                        </p>
+                    </div>
+                    <div class="role-node">
+                        <h4 class="text-lg font-bold text-neutral-700">Digital Data Analyst</h4>
+                        <p class="text-[10px] font-bold text-neutral-400 mb-2">May 2025 – Oct 2025</p>
+                    </div>
+                    <div class="role-node" style="margin-bottom: 0;">
+                        <h4 class="text-lg font-bold text-neutral-700 uppercase tracking-tight">WFM Data Analyst</h4>
+                        <p class="text-[10px] font-bold text-neutral-400 mb-2">June 2024 – May 2025</p>
+                        <ul class="text-neutral-500 text-sm font-light leading-relaxed space-y-2 list-disc pl-4 mt-2">
+                            <li>Consolidate data from multiple systems to improve operational efficiency.</li>
+                            <li>Develop advanced Power BI dashboards for workforce planning and performance tracking.</li>
+                            <li>Standardize data processes to improve quality, accessibility, and consistency.</li>
+                            <li>Lead BI initiatives ensuring reporting solutions align with organizational goals.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-row">
+                <div class="pr-8">
+                    <span class="text-[11px] font-bold text-neutral-400 tracking-[0.2em] block">APR 2006 — JUN 2024</span>
+                    <p class="text-[10px] font-bold text-neutral-400 uppercase mt-2">Animal Care Eco-System, Inc.</p>
+                    <p class="text-[9px] text-neutral-400 italic">Cavite, Philippines</p>
+                </div>
+                <div>
+                    <div class="role-node">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">Inventory and Logistics Officer / Data Analyst</h4>
+                        <p class="text-[10px] font-bold text-neutral-400 mb-2">Jan 2022 – Jun 2024</p>
+                        <p class="text-neutral-500 text-sm font-light leading-relaxed">
+                            Multifaceted role managing inventory, logistics, network administration, and website implementation. Leveraged data analysis to drive business insights and organizational success.
+                        </p>
+                    </div>
+                    <div class="role-node" style="margin-bottom: 0;">
+                        <h4 class="text-lg font-bold text-neutral-700 uppercase tracking-tight">Sales Administration Assistant</h4>
+                        <p class="text-[10px] font-bold text-neutral-400 mb-2">Apr 2006 – Dec 2021</p>
+                        <p class="text-neutral-500 text-sm font-light leading-relaxed">
+                            Supported sales through order processing and invoicing. Generated and analyzed sales reports for the General Manager to inform strategic decision-making.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-row">
+                <div class="pr-8">
+                    <span class="text-[11px] font-bold text-neutral-400 tracking-[0.2em] block">APR 2003 – APR 2006 </span>
+                    <p class="text-[10px] font-bold text-neutral-400 uppercase mt-2">Western Marketing Corp.</p>
+                    <p class="text-[9px] text-neutral-400 italic">Quezon City, Philippines</p>
+                </div>
+                <div>
+                    <div class="role-node">
+                        <h4 class="text-xl font-bold uppercase tracking-tight">POS Controller/ MIS Staff </h4>
+                        <p class="text-[10px] font-bold text-neutral-400 mb-2">Apr 2003 – Apr 2006</p>
+                        <p class="text-neutral-500 text-sm font-light leading-relaxed">
+                            This multifaceted role involved overseeing POS operations, 
+ensuring the integrity of transactional data, and leveraging MIS tools 
+to generate insightful reports for management. 
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 border-t border-neutral-100">
+        <div class="full-width-container flex flex-col md:flex-row justify-between items-center opacity-40">
+            <p class="text-[9px] font-bold uppercase tracking-[0.5em]">Data Analyst | Power BI Developer</p>
+            <p class="text-[9px] font-bold uppercase tracking-[0.5em]">2026 ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+
+    <script>
+        function openZoom(card) {
+            const modal = document.getElementById('zoom-modal');
+            const zoomedImg = document.getElementById('zoomed-image');
+            const sourceImg = card.querySelector('img').src;
+            
+            zoomedImg.src = sourceImg;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeZoom() {
+            const modal = document.getElementById('zoom-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeZoom();
+        });
+    </script>
+
+</body>
+</html>
