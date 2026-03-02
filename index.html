@@ -42,6 +42,10 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.04);
         }
 
+        /* Social Hover Effects */
+        .social-link { transition: all 0.3s ease; color: #b5b5b5; }
+        .social-link:hover { color: #d4af37; transform: translateY(-3px); }
+
         /* --- ZOOM MODAL STYLES --- */
         #zoom-modal {
             display: none;
@@ -78,7 +82,6 @@
             color: #888;
             cursor: pointer;
         }
-        /* ------------------------- */
 
         .skill-item {
             padding: 10px;
@@ -128,11 +131,13 @@
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100 py-5">
         <div class="full-width-container flex justify-between items-center">
             <h1 class="text-2xl font-bold tracking-tighter uppercase">Sharlyn<span class="gold-gradient"> Fabian</span></h1>
-            <div class="hidden lg:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400">
-                <a href="#about" class="hover:text-black">Vision</a>
-                <a href="#portfolio" class="hover:text-black">Portfolio</a>
-                <a href="#education" class="hover:text-black">Education</a>
-                <a href="#experience" class="hover:text-black">Work Experience</a>
+            <div class="hidden lg:flex items-center space-x-12">
+                <div class="flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400">
+                    <a href="#about" class="hover:text-black">Vision</a>
+                    <a href="#portfolio" class="hover:text-black">Portfolio</a>
+                    <a href="#education" class="hover:text-black">Education</a>
+                    <a href="#experience" class="hover:text-black">Work Experience</a>
+                </div>
                 
             </div>
             <a href="mailto:sharlynfabian@gmail.com" class="text-[10px] font-bold tracking-[0.3em] border-b-2 border-black pb-1 hover:border-yellow-600 transition-all">GET IN TOUCH</a>
@@ -154,7 +159,7 @@
                     
                     <p class="text-neutral-500 text-xl lg:text-3xl font-light serif italic leading-relaxed mb-12 border-l-4 border-yellow-500/20 pl-8">
                         "22 years of operational depth refined into high-impact business<br class="hidden lg:block"> 
-                         intelligence. Turning Raw Data into Strategic Value."
+                        intelligence. Turning Raw Data into Strategic Value."
                     </p>
                     
                     <div class="flex flex-wrap lg:flex-nowrap gap-10 lg:gap-20 pt-4">
@@ -270,7 +275,9 @@
                 </div>
             </div>
         </div>
-    </section><section id="education" class="py-24 bg-neutral-50 border-t border-neutral-100">
+    </section>
+
+    <section id="education" class="py-24 bg-neutral-50 border-t border-neutral-100">
         <div class="full-width-container">
             <div class="mb-16">
                 <h3 class="text-4xl lg:text-5xl serif italic tracking-tight">Academic & Professional Development</h3>
@@ -427,21 +434,37 @@
                         <h4 class="text-xl font-bold uppercase tracking-tight">POS Controller/ MIS Staff </h4>
                         <p class="text-[10px] font-bold text-neutral-400 mb-2">Apr 2003 – Apr 2006</p>
                         <p class="text-neutral-500 text-sm font-light leading-relaxed">
-                            This multifaceted role involved overseeing POS operations, 
-ensuring the integrity of transactional data, and leveraging MIS tools 
-to generate insightful reports for management. 
+                            This multifaceted role involved overseeing POS operations, ensuring the integrity of transactional data, and leveraging MIS tools to generate insightful reports for management. 
                         </p>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 border-t border-neutral-100">
-        <div class="full-width-container flex flex-col md:flex-row justify-between items-center opacity-40">
-            <p class="text-[9px] font-bold uppercase tracking-[0.5em]">Data Analyst | Power BI Developer</p>
-            <p class="text-[9px] font-bold uppercase tracking-[0.5em]">2026 ALL RIGHTS RESERVED</p>
+    <footer class="py-24 border-t border-neutral-100 bg-white">
+        <div class="full-width-container">
+            <div class="flex flex-col items-center">
+                <h3 class="text-4xl serif italic mb-10">Let's Connect</h3>
+                
+                <div class="flex flex-wrap justify-center gap-10 mb-16">
+                    <a href="https://www.linkedin.com/in/sharlyn-fabian-245913242/" target="_blank" class="social-link text-3xl" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://facebook.com/sharlynfabian" target="_blank" class="social-link text-3xl" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    
+                    <a href="mailto:sharlynfabian@gmail.com" class="social-link text-3xl" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between w-full items-center pt-8 border-t border-neutral-100 opacity-40">
+                    <p class="text-[9px] font-bold text-neutral-700 tracking-[0.3em] block">Data provides the evidence, but I provide the edge. Let’s build something informed.</p>
+                    <p class="text-[9px] font-bold uppercase tracking-[0.5em] mt-4 md:mt-0">2026 ALL RIGHTS RESERVED</p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -450,25 +473,20 @@ to generate insightful reports for management.
             const modal = document.getElementById('zoom-modal');
             const zoomedImg = document.getElementById('zoomed-image');
             const sourceImg = card.querySelector('img').src;
-            
             zoomedImg.src = sourceImg;
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeZoom() {
             const modal = document.getElementById('zoom-modal');
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Enable scrolling
+            document.body.style.overflow = 'auto'; 
         }
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeZoom();
         });
     </script>
-
 </body>
-
 </html>
-
